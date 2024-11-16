@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      .coordinates-display {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        z-index: 1000;
+        pointer-events: none;
+      }
+
+      .hover-point {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: red;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 1000;
+      }
+
+      .viewer {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="viewer"></div>
+    <div id="coordinates" class="coordinates-display">
+      X: 0mm<br>
+      Y: 0mm<br>
+      Z: 0mm
+    </div>
+    <div id="hover-point" class="hover-point"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.1/three.min.js"></script>
+    <script>
+      let scene, camera, renderer;
+      let currentLayout = '1';
+      let raycaster, mouse;
+      const WALL_A_LENGTH = 3; // 假设这是您的墙体长度
+      const WALL_B_LENGTH = 3;
+
+      function toUnits(value) {
+        return value / 1000; // 转换毫米到米
+      }
+
+      function init() {
+        // 创建场景
+        scene = new THREE.Scene();
+
+        // 创建相机
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(5, 2, 5);
+        camera.lookAt(0, toUnits(1200), 0);
+
+        // 创建渲染器
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // 获取viewer元素并添加渲染器的domElement
+        const viewer = document.querySelector('.viewer');
+        viewer.appendChild(renderer.domElement);
+
+        // 初始化射线检测器和鼠标位置
+        raycaster = new THREE.Raycaster();
+        mouse = new THREE.Vector2();
+
+        // 在viewer元素存在后再添加事件监听器
+        viewer.addEventListener('mousemove', onMouseMove);
+        viewer.addEventListener('click', onCabinetClick);
+
+        // 添加窗口大小调整监听器
+        window.addEventListener('resize', onWindowResize);
+
+        // 开始动画循环
+        animate();
+      }
+
+      function onMouseMove(event) {
+        const viewer = document.querySelector('.viewer');
+        const rect = viewer.getBoundingClientRect();
+
+        mouse.x = ((event.clientX - rect.left) / viewer.clientWidth) * 2 - 1;
+        mouse.y = -((event.clientY - rect.top) / viewer.clientHeight) * 2 + 1;
+
+        updateCoordinates();
+      }
+
+      function updateCoordinates() {
+        // 创建一个平面来检测交点
+        const planeGeometry = new THREE.PlaneGeometry(WALL_A_LENGTH * 2, WALL_B_LENGTH * 2);
+        const planeMaterial = new THREE.MeshBasicMaterial({ visible: false });
+        const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = -Math.PI / 2;
+
+        // 更新射线
+        raycaster.setFromCamera(mouse, camera);
+
+        // 获取射线与平面的交点
+        const intersects = raycaster.intersectObject(plane);
+
+        if (intersects.length > 0) {
+          const point = intersects[0].point;
+
+          // 更新坐标显示
+          const coordinates = document.getElementById('coordinates');
+          coordinates.innerHTML = `
+                    X: ${Math.round(point.x * 1000)}mm<br>
+                    Y: ${Math.round(point.y * 1000)}mm<br>
+                    Z: ${Math.round(point.z * 1000)}mm
+                `;
+
+          // 更新悬停点位置
+          const viewer = document.querySelector('.viewer');
+          const rect = viewer.getBoundingClientRect();
+          const hoverPoint = document.getElementById('hover-point');
+          const vector = point.clone();
+          vector.project(camera);
+
+          hoverPoint.style.left = ((vector.x + 1) * viewer.clientWidth / 2) + rect.left + 'px';
+          hoverPoint.style.top = ((-vector.y + 1) * viewer.clientHeight / 2) + rect.top + 'px';
+        }
+      }
+
+      function onCabinetClick(event) {
+        const viewer = document.querySelector('.viewer');
+        const rect = viewer.getBoundingClientRect();
+
+        mouse.x = ((event.clientX - rect.left) / viewer.clientWidth) * 2 - 1;
+        mouse.y = -((event.clientY - rect.top) / viewer.clientHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+
+        // 获取场景中所有的橱柜
+        const cabinets = scene.children.filter(obj => obj.type === 'Mesh' && obj.geometry.type === 'BoxGeometry');
+        const intersects = raycaster.intersectObjects(cabinets);
+
+        if (intersects.length > 0) {
+          const cabinet = intersects[0].object;
+          const position = cabinet.position;
+          console.log('Cabinet position:', {
+            x: Math.round(position.x * 1000),
+            y: Math.round(position.y * 1000),
+            z: Math.round(position.z * 1000)
+          });
+        }
+      }
+
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        // 如果存在rotation和height输入元素，则更新相机位置
+        const rotationElement = document.getElementById('rotation');
+        const heightElement = document.getElementById('height');
+
+        if (rotationElement && heightElement) {
+          const rotationValue = rotationElement.value;
+          const heightValue = heightElement.value;
+
+          const radius = 5;
+          camera.position.x = radius * Math.cos(rotationValue * Math.PI / 180);
+          camera.position.z = radius * Math.sin(rotationValue * Math.PI / 180);
+          camera.position.y = toUnits(parseFloat(heightValue));
+          camera.lookAt(0, toUnits(1200), 0);
+        }
+
+        renderer.render(scene, camera);
+      }
+
+      // 确保DOM完全加载后再初始化
+      document.addEventListener('DOMContentLoaded', init);
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Cubes with Controls</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      canvas {
+        display: block;
+      }
+
+      #controls {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .control-group {
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin: 2px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="controls">
+      <div class="control-group">
+        <span class="label">立方体大小控制</span>
+        <button onclick="changeCubeSize(10)">放大</button>
+        <button onclick="changeCubeSize(-10)">缩小</button>
+        <span id="sizeValue">100mm</span>
+      </div>
+      <div class="control-group">
+        <span class="label">间距控制</span>
+        <button onclick="changeSpacing(10)">增加间距</button>
+        <button onclick="changeSpacing(-10)">减少间距</button>
+        <span id="spacingValue">150mm</span>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      // 设置场景、相机和渲染器
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // 初始参数
+      let cubeSize = 100;
+      let spacing = 150;
+      const cubes = [];
+
+      // 创建材质
+      const materials = [
+        new THREE.MeshPhongMaterial({ color: 0x44aa88 }),
+        new THREE.MeshPhongMaterial({ color: 0x8844aa }),
+        new THREE.MeshPhongMaterial({ color: 0xaa8844 })
+      ];
+
+      // 创建立方体函数
+      function createCubes() {
+        // 清除现有的立方体
+        cubes.forEach(cube => scene.remove(cube));
+        cubes.length = 0;
+
+        const geometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+
+        // 创建三个立方体并设置位置
+        materials.forEach((material, index) => {
+          const cube = new THREE.Mesh(geometry, material);
+          cube.position.x = (index - 1) * spacing;
+          scene.add(cube);
+          cubes.push(cube);
+        });
+
+        renderer.render(scene, camera);
+      }
+
+      // 改变立方体大小
+      function changeCubeSize(delta) {
+        cubeSize = Math.max(20, Math.min(200, cubeSize + delta));
+        document.getElementById('sizeValue').textContent = cubeSize + 'mm';
+        createCubes();
+      }
+
+      // 改变间距
+      function changeSpacing(delta) {
+        spacing = Math.max(110, Math.min(300, spacing + delta));
+        document.getElementById('spacingValue').textContent = spacing + 'mm';
+        cubes.forEach((cube, index) => {
+          cube.position.x = (index - 1) * spacing;
+        });
+        renderer.render(scene, camera);
+      }
+
+      // 添加照明
+      const light = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(2, 2, 2);
+      scene.add(light);
+
+      const ambientLight = new THREE.AmbientLight(0x404040);
+      scene.add(ambientLight);
+
+      // 设置相机位置
+      camera.position.z = 500;
+      camera.position.y = 200;
+      camera.position.x = 0;
+      camera.lookAt(0, 0, 0);
+
+      // 创建初始立方体
+      createCubes();
+
+      // 处理窗口大小变化
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.render(scene, camera);
+      });
+    </script>
+  </body>
+
+</html>

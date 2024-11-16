@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      .controls {
+        margin-bottom: 20px;
+      }
+
+      .viewer {
+        width: 100%;
+        height: 600px;
+        background: #f0f0f0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .layout-selector {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .layout-btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background: #f0f0f0;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .layout-btn.active {
+        background: #007bff;
+        color: white;
+      }
+
+      .control-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="range"] {
+        width: 200px;
+      }
+
+      .dimensions {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>定制厨房布局查看器</h1>
+
+      <div class="dimensions">
+        <h3>空间尺寸：</h3>
+        <p>A平面：4000mm × 2400mm</p>
+        <p>B平面：2000mm × 2400mm</p>
+        <h3>橱柜尺寸：</h3>
+        <p>大柜：600mm × 500mm × 2400mm</p>
+        <p>小柜：340mm × 500mm × 600mm</p>
+      </div>
+
+      <div class="controls">
+        <div class="layout-selector">
+          <button class="layout-btn active" data-layout="1">布局方案1</button>
+          <button class="layout-btn" data-layout="2">布局方案2</button>
+          <button class="layout-btn" data-layout="3">布局方案3</button>
+        </div>
+
+        <div class="control-group">
+          <label>视角旋转</label>
+          <input type="range" id="rotation" min="0" max="360" value="45">
+        </div>
+
+        <div class="control-group">
+          <label>视角高度</label>
+          <input type="range" id="height" min="1000" max="4000" value="2500" step="100">
+        </div>
+      </div>
+
+      <div class="viewer">
+        <canvas id="kitchen-canvas"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.1/three.min.js"></script>
+    <script>
+      let scene, camera, renderer;
+      let currentLayout = '1';
+
+      // 转换单位：毫米到Three.js单位（1单位 = 1000毫米）
+      const toUnits = mm => mm / 1000;
+
+      // 空间尺寸
+      const WALL_A_LENGTH = toUnits(4000);
+      const WALL_B_LENGTH = toUnits(2000);
+      const WALL_HEIGHT = toUnits(2400);
+
+      // 橱柜尺寸
+      const CABINET_LARGE = {
+        width: toUnits(600),
+        depth: toUnits(500),
+        height: toUnits(2400)
+      };
+
+      const CABINET_SMALL = {
+        width: toUnits(340),
+        depth: toUnits(500),
+        height: toUnits(600)
+      };
+
+      function init() {
+        // 创建场景
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf0f0f0);
+
+        // 创建相机
+        camera = new THREE.PerspectiveCamera(
+          75,
+          document.querySelector('.viewer').clientWidth /
+          document.querySelector('.viewer').clientHeight,
+          0.1,
+          10
+        );
+        camera.position.set(4, 4, 4);
+        camera.lookAt(0, 0, 0);
+
+        // 创建渲染器
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(
+          document.querySelector('.viewer').clientWidth,
+          document.querySelector('.viewer').clientHeight
+        );
+        renderer.shadowMap.enabled = true;
+        document.querySelector('.viewer').appendChild(renderer.domElement);
+
+        // 添加光源
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(5, 5, 5);
+        directionalLight.castShadow = true;
+        scene.add(directionalLight);
+
+        // 创建地板和墙壁
+        createRoom();
+
+        // 创建初始布局
+        createLayout(currentLayout);
+
+        animate();
+      }
+
+      function createRoom() {
+        // 地板
+        const floorGeometry = new THREE.PlaneGeometry(WALL_A_LENGTH, WALL_B_LENGTH);
+        const floorMaterial = new THREE.MeshStandardMaterial({
+          color: 0xcccccc,
+          roughness: 0.8
+        });
+        const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.set(0, 0, 0);
+        scene.add(floor);
+
+        // A墙
+        const wallAGeometry = new THREE.PlaneGeometry(WALL_A_LENGTH, WALL_HEIGHT);
+        const wallAMaterial = new THREE.MeshStandardMaterial({
+          color: 0xeeeeee,
+          side: THREE.DoubleSide
+        });
+        const wallA = new THREE.Mesh(wallAGeometry, wallAMaterial);
+        wallA.position.set(0, WALL_HEIGHT / 2, -WALL_B_LENGTH / 2);
+        scene.add(wallA);
+
+        // B墙
+        const wallBGeometry = new THREE.PlaneGeometry(WALL_B_LENGTH, WALL_HEIGHT);
+        const wallB = new THREE.Mesh(wallBGeometry, wallAMaterial);
+        wallB.rotation.y = Math.PI / 2;
+        wallB.position.set(WALL_A_LENGTH / 2, WALL_HEIGHT / 2, 0);
+        scene.add(wallB);
+      }
+
+      function createCabinet(type, position, rotation = 0) {
+        const dimensions = type === 'large' ? CABINET_LARGE : CABINET_SMALL;
+        const geometry = new THREE.BoxGeometry(
+          dimensions.width,
+          dimensions.height,
+          dimensions.depth
+        );
+        const material = new THREE.MeshStandardMaterial({
+          color: 0x8B4513,
+          roughness: 0.7
+        });
+        const cabinet = new THREE.Mesh(geometry, material);
+        cabinet.position.set(
+          position.x,
+          position.y + dimensions.height / 2,
+          position.z
+        );
+        cabinet.rotation.y = rotation;
+        cabinet.castShadow = true;
+        cabinet.receiveShadow = true;
+        scene.add(cabinet);
+
+      }
+
+      function createLayout(layoutType) {
+        // 清除现有布局
+        scene.children = scene.children.filter(child =>
+          child.type === 'AmbientLight' ||
+          child.type === 'DirectionalLight'
+        );
+
+        createRoom();
+
+        switch (layoutType) {
+          case '1':
+            // A墙布局
+            for (let i = 0; i < 6; i++) {
+              createCabinet('large', {
+                x: -WALL_A_LENGTH / 2 + CABINET_LARGE.width / 2 + i * CABINET_LARGE.width,
+                y: 0,
+                z: -WALL_B_LENGTH / 2 + CABINET_LARGE.depth / 2
+              });
+            }
+            // B墙布局
+            for (let i = 0; i < 3; i++) {
+              createCabinet('large', {
+                x: WALL_A_LENGTH / 2 - CABINET_LARGE.depth / 2,
+                y: 0,
+                z: -WALL_B_LENGTH / 2 + CABINET_LARGE.width / 2 + i * CABINET_LARGE.width
+              }, Math.PI / 2);
+            }
+            break;
+
+          case '2':
+            // A墙布局（大柜+小柜组合）
+            for (let i = 0; i < 5; i++) {
+              console.log("x:", -WALL_A_LENGTH / 2 + CABINET_LARGE.width / 2 + 1 * CABINET_LARGE.width);
+              createCabinet('large', {
+                x: -WALL_A_LENGTH / 2 + CABINET_LARGE.width / 2 + i * CABINET_LARGE.width,
+                y: 0,
+                z: -WALL_B_LENGTH / 2 + CABINET_LARGE.depth / 2
+              });
+              // 在大柜上方添加小柜
+              createCabinet('small', {
+                x: -WALL_A_LENGTH / 2 + CABINET_LARGE.width / 2 + i * CABINET_LARGE.width,
+                y: CABINET_LARGE.height - CABINET_SMALL.height,
+                z: -WALL_B_LENGTH / 2 + CABINET_SMALL.depth / 2
+              });
+            }
+            break;
+
+          case '3':
+            // A墙布局（交错式）
+            for (let i = 0; i < 4; i++) {
+              createCabinet('large', {
+                x: -WALL_A_LENGTH / 2 + CABINET_LARGE.width / 2 + i * (CABINET_LARGE.width + CABINET_SMALL.width),
+                y: 0,
+                z: -WALL_B_LENGTH / 2 + CABINET_LARGE.depth / 2
+              });
+              createCabinet('small', {
+                x: -WALL_A_LENGTH / 2 + CABINET_LARGE.width + CABINET_SMALL.width / 2 + i * (CABINET_LARGE.width + CABINET_SMALL.width),
+                y: 0,
+                z: -WALL_B_LENGTH / 2 + CABINET_SMALL.depth / 2
+              });
+            }
+            // B墙布局
+            for (let i = 0; i < 2; i++) {
+              createCabinet('large', {
+                x: WALL_A_LENGTH / 2 - CABINET_LARGE.depth / 2,
+                y: 0,
+                z: -WALL_B_LENGTH / 2 + CABINET_LARGE.width / 2 + i * CABINET_LARGE.width
+              }, Math.PI / 2);
+            }
+            break;
+        }
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        const rotationValue = document.getElementById('rotation').value;
+        const heightValue = document.getElementById('height').value;
+
+        const radius = 5;
+        camera.position.x = radius * Math.cos(rotationValue * Math.PI / 180);
+        camera.position.z = radius * Math.sin(rotationValue * Math.PI / 180);
+        camera.position.y = toUnits(parseFloat(heightValue));
+        camera.lookAt(0, toUnits(1200), 0);
+
+        renderer.render(scene, camera);
+      }
+
+      // 事件监听器
+      document.querySelectorAll('.layout-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          document.querySelector('.layout-btn.active').classList.remove('active');
+          e.target.classList.add('active');
+          currentLayout = e.target.dataset.layout;
+          createLayout(currentLayout);
+        });
+      });
+
+      // 窗口大小调整
+      window.addEventListener('resize', () => {
+        camera.aspect = document.querySelector('.viewer').clientWidth /
+          document.querySelector('.viewer').clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(
+          document.querySelector('.viewer').clientWidth,
+          document.querySelector('.viewer').clientHeight
+        );
+      });
+
+      // 初始化场景
+      init();
+    </script>
+  </body>
+
+</html>
