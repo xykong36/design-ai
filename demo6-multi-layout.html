@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Cube Layouts</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      #container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        height: 100vh;
+      }
+
+      .scene-container {
+        position: relative;
+      }
+
+      .layout-label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      // 布局生成器类
+      class LayoutGenerator {
+        constructor() {
+          this.cubeSize = 100;
+          this.layouts = this.generateLayouts();
+        }
+
+        generateLayouts() {
+          return {
+            linear: {
+              name: "线性布局",
+              positions: [
+                { x: -150, y: 0, z: 0 },
+                { x: 0, y: 0, z: 0 },
+                { x: 150, y: 0, z: 0 }
+              ]
+            },
+            triangle: {
+              name: "三角形布局",
+              positions: [
+                { x: -100, y: 0, z: -58 },
+                { x: 100, y: 0, z: -58 },
+                { x: 0, y: 0, z: 115 }
+              ]
+            },
+            lShape: {
+              name: "L形布局",
+              positions: [
+                { x: -150, y: 0, z: 0 },
+                { x: 0, y: 0, z: 0 },
+                { x: 0, y: 0, z: 150 }
+              ]
+            },
+            stairs: {
+              name: "阶梯布局",
+              positions: [
+                { x: -150, y: 0, z: 0 },
+                { x: 0, y: 100, z: 0 },
+                { x: 150, y: 200, z: 0 }
+              ]
+            }
+          };
+        }
+
+        getLayoutData() {
+          return this.layouts;
+        }
+      }
+
+      // 场景管理器类
+      class SceneManager {
+        constructor(containerId, layout, layoutName) {
+          this.container = document.createElement('div');
+          this.container.className = 'scene-container';
+          document.getElementById(containerId).appendChild(this.container);
+
+          // 添加布局标签
+          const label = document.createElement('div');
+          label.className = 'layout-label';
+          label.textContent = layoutName;
+          this.container.appendChild(label);
+
+          this.setupScene();
+          this.createCubes(layout);
+          this.setupCamera();
+          this.setupLights();
+          this.render();
+        }
+
+        setupScene() {
+          this.scene = new THREE.Scene();
+          this.renderer = new THREE.WebGLRenderer();
+          this.renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+          this.container.appendChild(this.renderer.domElement);
+        }
+
+        createCubes(layout) {
+          const geometry = new THREE.BoxGeometry(100, 100, 100);
+          const materials = [
+            new THREE.MeshPhongMaterial({ color: 0x44aa88 }),
+            new THREE.MeshPhongMaterial({ color: 0x8844aa }),
+            new THREE.MeshPhongMaterial({ color: 0xaa8844 })
+          ];
+
+          layout.positions.forEach((pos, index) => {
+            const cube = new THREE.Mesh(geometry, materials[index]);
+            cube.position.set(pos.x, pos.y, pos.z);
+            this.scene.add(cube);
+          });
+        }
+
+        setupCamera() {
+          this.camera = new THREE.PerspectiveCamera(
+            60,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+          );
+          this.camera.position.set(300, 300, 300);
+          this.camera.lookAt(0, 0, 0);
+        }
+
+        setupLights() {
+          const light = new THREE.DirectionalLight(0xffffff, 1);
+          light.position.set(2, 2, 2);
+          this.scene.add(light);
+
+          const ambientLight = new THREE.AmbientLight(0x404040);
+          this.scene.add(ambientLight);
+        }
+
+        render() {
+          this.renderer.render(this.scene, this.camera);
+        }
+
+        onWindowResize() {
+          this.camera.aspect = window.innerWidth / window.innerHeight;
+          this.camera.updateProjectionMatrix();
+          this.renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+          this.render();
+        }
+      }
+
+      // 初始化
+      const layoutGenerator = new LayoutGenerator();
+      const layouts = layoutGenerator.getLayoutData();
+      const scenes = [];
+
+      // 创建所有布局场景
+      for (const [key, layout] of Object.entries(layouts)) {
+        scenes.push(new SceneManager('container', layout, layout.name));
+      }
+
+      // 处理窗口调整
+      window.addEventListener('resize', () => {
+        scenes.forEach(scene => scene.onWindowResize());
+      });
+
+      // 输出布局数据到控制台
+      console.log('Layout Data:', JSON.stringify(layouts, null, 2));
+    </script>
+  </body>
+
+</html>

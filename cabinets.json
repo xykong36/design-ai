@@ -1,0 +1,22 @@
+{
+  "base_cabinets": {
+    "base_cabinet_1": {"height": 850, "depth": 600, "width": 300},
+    "base_cabinet_2": {"height": 850, "depth": 600, "width": 450},
+    "base_cabinet_3": {"height": 850, "depth": 600, "width": 600},
+    "base_cabinet_4": {"height": 850, "depth": 600, "width": 900},
+    "base_cabinet_5": {"height": 850, "depth": 600, "width": 1200}
+  },
+  
+  "wall_cabinets": {
+    "wall_cabinet_1": {"height": 900, "depth": 360, "width": 450},
+    "wall_cabinet_2": {"height": 900, "depth": 360, "width": 600},
+    "wall_cabinet_3": {"height": 900, "depth": 360, "width": 900},
+    "wall_cabinet_4": {"height": 900, "depth": 360, "width": 1200}
+  },
+  
+  "tall_cabinets": {
+    "tall_cabinet_1": {"height": 2400, "depth": 600, "width": 300},
+    "tall_cabinet_2": {"height": 2400, "depth": 600, "width": 450},
+    "tall_cabinet_3": {"height": 2400, "depth": 600, "width": 600}
+  }
+}

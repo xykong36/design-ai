@@ -133,6 +133,34 @@
       const gridHelper = new THREE.GridHelper(100, 100);
       scene.add(gridHelper);
 
+
+      // Add this after the kitchenData constant and before the SCALE constant
+      let cabinetsData = {
+      "base_cabinets": {
+        "base_cabinet_1": {"height": 850, "depth": 600, "width": 300},
+        "base_cabinet_2": {"height": 850, "depth": 600, "width": 450},
+        "base_cabinet_3": {"height": 850, "depth": 600, "width": 600},
+        "base_cabinet_4": {"height": 850, "depth": 600, "width": 900},
+        "base_cabinet_5": {"height": 850, "depth": 600, "width": 1200}
+      },
+      
+      "wall_cabinets": {
+        "wall_cabinet_1": {"height": 900, "depth": 360, "width": 450},
+        "wall_cabinet_2": {"height": 900, "depth": 360, "width": 600},
+        "wall_cabinet_3": {"height": 900, "depth": 360, "width": 900},
+        "wall_cabinet_4": {"height": 900, "depth": 360, "width": 1200}
+      },
+      
+      "tall_cabinets": {
+        "tall_cabinet_1": {"height": 2400, "depth": 600, "width": 300},
+        "tall_cabinet_2": {"height": 2400, "depth": 600, "width": 450},
+        "tall_cabinet_3": {"height": 2400, "depth": 600, "width": 600}
+      }
+    };
+
+      console.log('Base Cabinets:', cabinetsData.base_cabinets);
+      console.log("width: ", cabinetsData.base_cabinets["base_cabinet_1"]["width"])
+
       function createWalls() {
         const wallMaterial = new THREE.MeshStandardMaterial({
           color: 0xcccccc,
@@ -158,16 +186,17 @@
         );
         kitchenGroup.add(floor);
 
+
         // 添加立方体
-        const cubeGeometry = new THREE.BoxGeometry(200 * SCALE, 1000 * SCALE, 200 * SCALE);
+        const cubeGeometry = new THREE.BoxGeometry(cabinetsData.base_cabinets["base_cabinet_1"]["width"] * SCALE, cabinetsData.base_cabinets["base_cabinet_1"]["height"] * SCALE, cabinetsData.base_cabinets["base_cabinet_1"]["depth"] * SCALE);
         const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x44aa88 });
         const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
         // 将立方体放置在地板上
         cube.position.set(
-          1000 * SCALE,  // x位置
-          (1000 * SCALE) / 2,  // y位置 (高度的一半，使立方体底部在地面上)
-          -900 * SCALE  // z位置
+          (cabinetsData.base_cabinets["base_cabinet_1"]["width"] * SCALE) / 2,  // x位置
+          (cabinetsData.base_cabinets["base_cabinet_1"]["height"] * SCALE) / 2,  // y位置 (高度的一半，使立方体底部在地面上)
+          -(cabinetsData.base_cabinets["base_cabinet_1"]["depth"] * SCALE) / 2   // z位置
         );
         kitchenGroup.add(cube);
 
