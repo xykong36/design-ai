@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Kitchen 3D Layout</title>
     <style>
@@ -50,13 +51,13 @@
       button:hover {
         background: #45a049;
       }
-      .zoom-slider-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 5px;
-  }
 
+      .zoom-slider-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 5px;
+      }
     </style>
   </head>
 
@@ -130,22 +131,22 @@
       // 柜体数据定义
       const cabinetsData = {
         "base_cabinets": {
-          "base_cabinet_1": {"height": 850, "depth": 600, "width": 300},
-          "base_cabinet_2": {"height": 850, "depth": 600, "width": 450},
-          "base_cabinet_3": {"height": 850, "depth": 600, "width": 600},
-          "base_cabinet_4": {"height": 850, "depth": 600, "width": 900},
-          "base_cabinet_5": {"height": 850, "depth": 600, "width": 1200}
+          "base_cabinet_1": { "height": 850, "depth": 600, "width": 300 },
+          "base_cabinet_2": { "height": 850, "depth": 600, "width": 450 },
+          "base_cabinet_3": { "height": 850, "depth": 600, "width": 600 },
+          "base_cabinet_4": { "height": 850, "depth": 600, "width": 900 },
+          "base_cabinet_5": { "height": 850, "depth": 600, "width": 1200 }
         },
         "wall_cabinets": {
-          "wall_cabinet_1": {"height": 900, "depth": 360, "width": 450},
-          "wall_cabinet_2": {"height": 900, "depth": 360, "width": 600},
-          "wall_cabinet_3": {"height": 900, "depth": 360, "width": 900},
-          "wall_cabinet_4": {"height": 900, "depth": 360, "width": 1200}
+          "wall_cabinet_1": { "height": 900, "depth": 360, "width": 450 },
+          "wall_cabinet_2": { "height": 900, "depth": 360, "width": 600 },
+          "wall_cabinet_3": { "height": 900, "depth": 360, "width": 900 },
+          "wall_cabinet_4": { "height": 900, "depth": 360, "width": 1200 }
         },
         "tall_cabinets": {
-          "tall_cabinet_1": {"height": 2400, "depth": 600, "width": 300},
-          "tall_cabinet_2": {"height": 2400, "depth": 600, "width": 450},
-          "tall_cabinet_3": {"height": 2400, "depth": 600, "width": 600}
+          "tall_cabinet_1": { "height": 2400, "depth": 600, "width": 300 },
+          "tall_cabinet_2": { "height": 2400, "depth": 600, "width": 450 },
+          "tall_cabinet_3": { "height": 2400, "depth": 600, "width": 600 }
         }
       };
 
@@ -160,10 +161,10 @@
                 "y": 0,
                 "z": -1600,  // -2660 + 1200
                 "rotation": {
-    "x": 0,
-    "y": Math.PI / 2,  // 90度 = π/2
-    "z": 0
-  }
+                  "x": 0,
+                  "y": Math.PI / 2,  // 90度 = π/2
+                  "z": 0
+                }
               },
 
             },
@@ -174,12 +175,12 @@
                 "y": 0,
                 "z": -700,   // -1460 + 900
                 "rotation": {
-    "x": 0,
-    "y": Math.PI / 2,  // 90度 = π/2
-    "z": 0
-  }
+                  "x": 0,
+                  "y": Math.PI / 2,  // 90度 = π/2
+                  "z": 0
+                }
               },
-              
+
             }
           ]
         },
@@ -292,22 +293,22 @@
       // Lighting setup
       function createLighting() {
         const lights = new THREE.Group();
-        
+
         // 环境光
         const ambient = new THREE.AmbientLight(0xffffff, 0.4);
         lights.add(ambient);
-        
+
         // 主方向光
         const mainLight = new THREE.DirectionalLight(0xffffff, 0.8);
         mainLight.position.set(10, 10, 10);
         mainLight.castShadow = true;
         lights.add(mainLight);
-        
+
         // 补充光源
         const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
         fillLight.position.set(-5, 5, -5);
         lights.add(fillLight);
-        
+
         return lights;
       }
 
@@ -324,39 +325,39 @@
           dimensions.height * SCALE,
           dimensions.depth * SCALE
         );
-        
-        const material = new THREE.MeshPhongMaterial({ 
+
+        const material = new THREE.MeshPhongMaterial({
           color: color,
           transparent: true,
           opacity: 0.9,
           side: THREE.DoubleSide,
           shadowSide: THREE.FrontSide
         });
-        
+
         const cabinet = new THREE.Mesh(geometry, material);
         cabinet.castShadow = true;
         cabinet.receiveShadow = true;
-        
+
         if (position.rotation) {
-    // 如果有旋转，需要调整位置计算
-    cabinet.position.set(
-      position.x * SCALE,
-      position.y * SCALE + (dimensions.height * SCALE) / 2,
-      position.z * SCALE
-    );
-    cabinet.rotation.set(
-      position.rotation.x,
-      position.rotation.y,
-      position.rotation.z
-    );
-  } else {
-    // 原来的位置计算
-    cabinet.position.set(
-      position.x * SCALE + (dimensions.width * SCALE) / 2,
-      position.y * SCALE + (dimensions.height * SCALE) / 2,
-      position.z * SCALE + (dimensions.depth * SCALE) / 2
-    );
-  }
+          // 如果有旋转，需要调整位置计算
+          cabinet.position.set(
+            position.x * SCALE,
+            position.y * SCALE + (dimensions.height * SCALE) / 2,
+            position.z * SCALE
+          );
+          cabinet.rotation.set(
+            position.rotation.x,
+            position.rotation.y,
+            position.rotation.z
+          );
+        } else {
+          // 原来的位置计算
+          cabinet.position.set(
+            position.x * SCALE + (dimensions.width * SCALE) / 2,
+            position.y * SCALE + (dimensions.height * SCALE) / 2,
+            position.z * SCALE + (dimensions.depth * SCALE) / 2
+          );
+        }
 
         // 添加边框效果
         const edges = new THREE.EdgesGeometry(geometry);
@@ -365,7 +366,7 @@
           new THREE.LineBasicMaterial({ color: 0x000000 })
         );
         cabinet.add(line);
-        
+
         return cabinet;
       }
 
@@ -475,7 +476,7 @@
         kitchenGroup.add(wallB);
 
         const cabinets = createCabinets();
-  kitchenGroup.add(cabinets);
+        kitchenGroup.add(cabinets);
 
         scene.add(kitchenGroup);
       }
@@ -522,102 +523,102 @@
         camera.lookAt(scene.position);
       }
 
-// 添加缩放控制函数
-let currentCameraPosition = {x: 0, y: 0, z: 0};
-let currentLookAt = {x: 0, y: 0, z: 0};
+      // 添加缩放控制函数
+      let currentCameraPosition = { x: 0, y: 0, z: 0 };
+      let currentLookAt = { x: 0, y: 0, z: 0 };
 
-function updateCameraPosition() {
-  camera.position.set(currentCameraPosition.x, currentCameraPosition.y, currentCameraPosition.z);
-  camera.lookAt(currentLookAt.x, currentLookAt.y, currentLookAt.z);
-}
+      function updateCameraPosition() {
+        camera.position.set(currentCameraPosition.x, currentCameraPosition.y, currentCameraPosition.z);
+        camera.lookAt(currentLookAt.x, currentLookAt.y, currentLookAt.z);
+      }
 
 
-function zoomCamera(direction) {
-  // 保存当前相机位置和朝向
-  currentCameraPosition.x = camera.position.x;
-  currentCameraPosition.y = camera.position.y;
-  currentCameraPosition.z = camera.position.z;
-  
-  // 获取相机看向的点
-  let lookAtVector = new THREE.Vector3();
-  camera.getWorldDirection(lookAtVector);
-  
-  // 计算当前lookAt点
-  currentLookAt.x = camera.position.x + lookAtVector.x;
-  currentLookAt.y = camera.position.y + lookAtVector.y;
-  currentLookAt.z = camera.position.z + lookAtVector.z;
+      function zoomCamera(direction) {
+        // 保存当前相机位置和朝向
+        currentCameraPosition.x = camera.position.x;
+        currentCameraPosition.y = camera.position.y;
+        currentCameraPosition.z = camera.position.z;
 
-  // 计算缩放方向向量
-  let zoomVector = new THREE.Vector3(
-    currentCameraPosition.x - currentLookAt.x,
-    currentCameraPosition.y - currentLookAt.y,
-    currentCameraPosition.z - currentLookAt.z
-  );
-  
-  // 缩放因子
-  const zoomFactor = direction === 'in' ? 0.8 : 1.2;
-  
-  // 更新相机位置
-  currentCameraPosition.x = currentLookAt.x + zoomVector.x * zoomFactor;
-  currentCameraPosition.y = currentLookAt.y + zoomVector.y * zoomFactor;
-  currentCameraPosition.z = currentLookAt.z + zoomVector.z * zoomFactor;
-  
-  updateCameraPosition();
-}
+        // 获取相机看向的点
+        let lookAtVector = new THREE.Vector3();
+        camera.getWorldDirection(lookAtVector);
 
-// 修改视角设置函数，使其使用当前相机状态变量
-function setElevationView(elevation) {
-  switch(elevation) {
-    case 'A':
-      currentCameraPosition = {x: 40, y: 12, z: -13};
-      currentLookAt = {x: -5, y: 12, z: -13};
-      break;
-    case 'B':
-      currentCameraPosition = {x: 21, y: 12, z: 5};
-      currentLookAt = {x: 21, y: 12, z: -26.6};
-      break;
-  }
-  updateCameraPosition();
-}
+        // 计算当前lookAt点
+        currentLookAt.x = camera.position.x + lookAtVector.x;
+        currentLookAt.y = camera.position.y + lookAtVector.y;
+        currentLookAt.z = camera.position.z + lookAtVector.z;
 
-function setCornerView(corner) {
-  switch(corner) {
-    case 'leftBack':
-      currentCameraPosition = {x: 50, y: 25, z: 10};
-      currentLookAt = {x: 0, y: 10, z: -26.6};
-      break;
-    case 'rightBack':
-      currentCameraPosition = {x: -10, y: 25, z: 10};
-      currentLookAt = {x: 42.1, y: 10, z: -26.6};
-      break;
-  }
-  updateCameraPosition();
-}
+        // 计算缩放方向向量
+        let zoomVector = new THREE.Vector3(
+          currentCameraPosition.x - currentLookAt.x,
+          currentCameraPosition.y - currentLookAt.y,
+          currentCameraPosition.z - currentLookAt.z
+        );
 
-function setDefaultView() {
-  currentCameraPosition = {x: 50, y: 30, z: 10};
-  currentLookAt = {x: 20, y: 10, z: -13};
-  updateCameraPosition();
-}
+        // 缩放因子
+        const zoomFactor = direction === 'in' ? 0.8 : 1.2;
 
-function resetView() {
-  currentRotation = 0;
-  scene.rotation.y = 0;
-  setDefaultView();
-}
+        // 更新相机位置
+        currentCameraPosition.x = currentLookAt.x + zoomVector.x * zoomFactor;
+        currentCameraPosition.y = currentLookAt.y + zoomVector.y * zoomFactor;
+        currentCameraPosition.z = currentLookAt.z + zoomVector.z * zoomFactor;
 
-// 可能还需要调整相机的视野范围
-camera.fov = 45;  // 减小视野角度，获得更好的透视效果
-camera.updateProjectionMatrix();
+        updateCameraPosition();
+      }
 
-function resetView() {
-  currentRotation = 0;
-  scene.rotation.y = 0;
-  // 重置到默认的等轴测视图
-  camera.position.set(30, 30, 30);
-  camera.up.set(0, 1, 0);
-  camera.lookAt(scene.position);
-}
+      // 修改视角设置函数，使其使用当前相机状态变量
+      function setElevationView(elevation) {
+        switch (elevation) {
+          case 'A':
+            currentCameraPosition = { x: 40, y: 12, z: -13 };
+            currentLookAt = { x: -5, y: 12, z: -13 };
+            break;
+          case 'B':
+            currentCameraPosition = { x: 21, y: 12, z: 5 };
+            currentLookAt = { x: 21, y: 12, z: -26.6 };
+            break;
+        }
+        updateCameraPosition();
+      }
+
+      function setCornerView(corner) {
+        switch (corner) {
+          case 'leftBack':
+            currentCameraPosition = { x: 50, y: 25, z: 10 };
+            currentLookAt = { x: 0, y: 10, z: -26.6 };
+            break;
+          case 'rightBack':
+            currentCameraPosition = { x: -10, y: 25, z: 10 };
+            currentLookAt = { x: 42.1, y: 10, z: -26.6 };
+            break;
+        }
+        updateCameraPosition();
+      }
+
+      function setDefaultView() {
+        currentCameraPosition = { x: 50, y: 30, z: 10 };
+        currentLookAt = { x: 20, y: 10, z: -13 };
+        updateCameraPosition();
+      }
+
+      function resetView() {
+        currentRotation = 0;
+        scene.rotation.y = 0;
+        setDefaultView();
+      }
+
+      // 可能还需要调整相机的视野范围
+      camera.fov = 45;  // 减小视野角度，获得更好的透视效果
+      camera.updateProjectionMatrix();
+
+      function resetView() {
+        currentRotation = 0;
+        scene.rotation.y = 0;
+        // 重置到默认的等轴测视图
+        camera.position.set(30, 30, 30);
+        camera.up.set(0, 1, 0);
+        camera.lookAt(scene.position);
+      }
 
       // Animation loop
       function animate() {
@@ -636,4 +637,3 @@ function resetView() {
   </body>
 
 </html>
-

@@ -1,0 +1,982 @@
+{
+  "configurations": [
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 600,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 600,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1200,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 600,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 1200,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 2100,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 600,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 1500,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 3300,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1350,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1500,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 2100,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 1500,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 3300,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 600,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1200,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 600,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1200,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 3300,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1350,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_4",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1350,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 3300,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1500,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 2100,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 2700,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 3300,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 600,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1200,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 3600,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1350,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 2250,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 2700,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_3",
+          "position": {
+            "x": 3300,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1350,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 2400,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 3000,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 3600,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 4200,
+      "cabinets": [
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 0,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 450,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 900,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1350,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 1800,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 2250,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 2700,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_1",
+          "position": {
+            "x": 3150,
+            "y": 1500,
+            "z": -2660
+          }
+        },
+        {
+          "type": "wall_cabinet_2",
+          "position": {
+            "x": 3600,
+            "y": 1500,
+            "z": -2660
+          }
+        }
+      ]
+    }
+  ]
+}

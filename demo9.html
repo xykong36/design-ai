@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Kitchen 3D Layout</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div id="scene-container"></div>
+    <div id="controls">
+      <div class="control-group">
+        <h3>Configurations</h3>
+        <button onclick="loadRandomConfiguration()">Random Configuration</button>
+      </div>
+      <div class="control-group">
+        <h3>Camera Positions</h3>
+        <button onclick="setCameraPosition('front')">Front View</button>
+        <button onclick="setCameraPosition('top')">Top View</button>
+        <button onclick="setCameraPosition('perspective')">Perspective</button>
+      </div>
+      <div class="control-group">
+        <h3>View Angles</h3>
+        <button onclick="rotateScene('left')">Rotate Left</button>
+        <button onclick="rotateScene('right')">Rotate Right</button>
+        <button onclick="resetRotation()">Reset Rotation</button>
+      </div>
+      <div class="control-group">
+        <h3>Elevation Views</h3>
+        <button onclick="setElevationView('A')">Elevation A (Left Wall)</button>
+        <button onclick="setElevationView('B')">Elevation B (Back Wall)</button>
+      </div>
+      <div class="control-group">
+        <h3>Corner Views</h3>
+        <button onclick="setCornerView('leftBack')">Left-Back Corner</button>
+        <button onclick="setCornerView('rightBack')">Right-Back Corner</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="sceneSetup.js"></script>
+    <script src="cabinets.js"></script>
+    <script src="constants.js"></script>
+
+    <script>
+
+      function loadCabinetsData() {
+        return fetch('cabinets.json')
+          .then(response => response.json())
+          .then(data => {
+            cabinetsData = data;
+            console.log('Cabinets data loaded:', cabinetsData);
+          })
+          .catch(error => console.error('Error loading cabinets data:', error));
+      }
+
+      // Function to load base configurations data
+      function loadBaseCabinetsConfigurationsData() {
+        return fetch('configurations.json')
+          .then(response => response.json())
+          .then(data => {
+            baseConfigurationsData = data;
+            console.log('Base Configurations data loaded:', baseConfigurationsData);
+          })
+          .catch(error => console.error('Error loading configurations data:', error));
+      }
+
+      // Function to load base configurations data
+      function loadWallCabinetsConfigurationsData() {
+        return fetch('wall-configurations-B.json')
+          .then(response => response.json())
+          .then(data => {
+            wallConfigurationsData = data;
+            console.log('Wall Configurations data loaded:', wallConfigurationsData);
+          })
+          .catch(error => console.error('Error loading wallConfigurationsData data:', error));
+      }
+
+      function loadConfiguration(baseCabinetIndex, wallCabinetIndex) {
+        // read two configurations data
+        if (!cabinetsData || !baseConfigurationsData || !wallConfigurationsData) {
+          console.error('Data not loaded yet');
+          return;
+        }
+
+        const colors = {
+          base: 0x8B4513,
+          wall: 0x4169E1
+        };
+
+        // Remove existing cabinets
+        scene.remove(cabinetGroup);
+        cabinetGroup = new THREE.Group();
+
+        const baseConfig = baseConfigurationsData.configurations[baseCabinetIndex];
+        const wallConfig = wallConfigurationsData.configurations[wallCabinetIndex];
+
+        baseConfig.cabinets.forEach(cabinet => {
+          console.log("load the base cabinets data here");
+          const dimensions = cabinetsData.base_cabinets[cabinet.type];
+          const baseCabinet = createCabinet(dimensions, cabinet.position, colors.base);
+          cabinetGroup.add(baseCabinet);
+        });
+
+        wallConfig.cabinets.forEach(cabinet => {
+          console.log("load the wall cabinets data here");
+          const dimensions = cabinetsData.wall_cabinets[cabinet.type];
+          const wallCabinet = createCabinet(dimensions, cabinet.position, colors.wall);
+          cabinetGroup.add(wallCabinet);
+        });
+
+        scene.add(cabinetGroup);
+      }
+
+      function loadRandomConfiguration() {
+        Promise.all([loadCabinetsData(), loadBaseCabinetsConfigurationsData(), loadWallCabinetsConfigurationsData()])
+          .then(() => {
+            const baseRandomIndex = Math.floor(Math.random() * baseConfigurationsData.configurations.length);
+            const wallRandomIndex = Math.floor(Math.random() * wallConfigurationsData.configurations.length);
+            loadConfiguration(baseRandomIndex, wallRandomIndex);
+          });
+      }
+
+      let currentConfiguration = null;
+      let cabinetGroup = new THREE.Group();
+
+      // Initialize scene
+      createWalls();
+      loadRandomConfiguration();
+
+      // Camera controls
+      let currentRotation = 0;
+      let currentCameraPosition = { x: 0, y: 0, z: 0 };
+      let currentLookAt = { x: 0, y: 0, z: 0 };
+
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    </script>
+  </body>
+
+</html>
