@@ -1,0 +1,1038 @@
+{
+  "configurations": [
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_4",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_5",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_5",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_4",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_4",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1835.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1385.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_5",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -935.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1760.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1160.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_4",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -560.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_5",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_4",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1160.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_4",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -410.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1835.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1385.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -935.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -335.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_4",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -410.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -860.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -410.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1160.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -260.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_3",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -410.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_2",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -260.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "total_width": 2100,
+      "cabinets": [
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1910.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1610.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1310.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -1010.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -710.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -410.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        },
+        {
+          "type": "base_cabinet_1",
+          "position": {
+            "x": 300,
+            "y": 0,
+            "z": -110.0,
+            "rotation": {
+              "x": 0,
+              "y": 1.5707963267948966,
+              "z": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

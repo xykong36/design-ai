@@ -66,6 +66,17 @@
       }
 
       // Function to load base configurations data
+      function loadBaseCabinetsElevationAConfigurationsData() {
+        return fetch('base-configurations-A.json')
+          .then(response => response.json())
+          .then(data => {
+            baseConfigurationsElevationAData = data;
+            console.log('baseConfigurationsElevationAData loaded:', baseConfigurationsElevationAData);
+          })
+          .catch(error => console.error('Error loading baseConfigurationsElevationAData data:', error));
+      }
+
+      // Function to load base configurations data
       function loadWallCabinetsConfigurationsData() {
         return fetch('wall-configurations-B.json')
           .then(response => response.json())
@@ -76,9 +87,9 @@
           .catch(error => console.error('Error loading wallConfigurationsData data:', error));
       }
 
-      function loadConfiguration(baseCabinetIndex, wallCabinetIndex) {
+      function loadConfiguration(baseCabinetIndex, wallCabinetIndex, baseElevationARandomIndex) {
         // read two configurations data
-        if (!cabinetsData || !baseConfigurationsData || !wallConfigurationsData) {
+        if (!cabinetsData || !baseConfigurationsData || !wallConfigurationsData || !baseConfigurationsElevationAData) {
           console.error('Data not loaded yet');
           return;
         }
@@ -93,10 +104,18 @@
         cabinetGroup = new THREE.Group();
 
         const baseConfig = baseConfigurationsData.configurations[baseCabinetIndex];
+        const baseElevationAConfig = baseConfigurationsElevationAData.configurations[baseElevationARandomIndex];
         const wallConfig = wallConfigurationsData.configurations[wallCabinetIndex];
 
         baseConfig.cabinets.forEach(cabinet => {
           console.log("load the base cabinets data here");
+          const dimensions = cabinetsData.base_cabinets[cabinet.type];
+          const baseCabinet = createCabinet(dimensions, cabinet.position, colors.base);
+          cabinetGroup.add(baseCabinet);
+        });
+
+        baseElevationAConfig.cabinets.forEach(cabinet => {
+          console.log("load the baseElevationAConfig data here");
           const dimensions = cabinetsData.base_cabinets[cabinet.type];
           const baseCabinet = createCabinet(dimensions, cabinet.position, colors.base);
           cabinetGroup.add(baseCabinet);
@@ -113,11 +132,12 @@
       }
 
       function loadRandomConfiguration() {
-        Promise.all([loadCabinetsData(), loadBaseCabinetsConfigurationsData(), loadWallCabinetsConfigurationsData()])
+        Promise.all([loadCabinetsData(), loadBaseCabinetsConfigurationsData(), loadWallCabinetsConfigurationsData(), loadBaseCabinetsElevationAConfigurationsData()])
           .then(() => {
             const baseRandomIndex = Math.floor(Math.random() * baseConfigurationsData.configurations.length);
+            const baseElevationARandomIndex = Math.floor(Math.random() * baseConfigurationsElevationAData.configurations.length);
             const wallRandomIndex = Math.floor(Math.random() * wallConfigurationsData.configurations.length);
-            loadConfiguration(baseRandomIndex, wallRandomIndex);
+            loadConfiguration(baseRandomIndex, wallRandomIndex, baseElevationARandomIndex);
           });
       }
 
